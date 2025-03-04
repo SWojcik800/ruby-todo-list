@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "My tasks" %>
+
+<style>
+  #tasks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+</style>
+
+<div class="d-flex justify-content-between mb-4">
+  <h1>My tasks</h1>
+  <div>
+    <%= link_to "New task", new_task_path, class: "btn btn-success" %>  
+  </div >
+</div>
+
+
+<div id="tasks">
+  
+  <% @tasks.each do |task| %>
+    <%= render task %>
+  <% end %>
+</div>
+

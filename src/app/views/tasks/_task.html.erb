@@ -1,0 +1,19 @@
+<div id="<%= dom_id task %>" class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title"><strong>Title:</strong> <%= task.title %></h5>
+    <p class="card-text"><strong>Body:</strong> <%= task.body %></p>
+    <p class="card-text">
+      <%= simple_form_for(task, remote: true, authenticity_token: true) do |f| %>
+        <%= f.input :completed, as: :boolean, label: "Completed"  %>
+
+        <% if controller.action_name != "index"  %>
+          <%= f.submit "Save", class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
+    </p>
+
+    <p>
+      <%= link_to "Show this task", task %>
+    </p>
+  </div>
+</div>
